@@ -37,7 +37,10 @@ def checkout(skus):
     num_b_discounts = int(num_product_b / 2)
     b_discount = (num_b_discounts * 15) + (max(num_product_b, num_free_bs) * 30)
 
+    breakpoint()
+
     return running_total - a_discount - b_discount
+
 
 
 
