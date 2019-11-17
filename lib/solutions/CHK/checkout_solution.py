@@ -12,7 +12,9 @@ def checkout(skus):
 
     items = list(skus)
     running_total = 0
+    product_a_counter = 0
     for item in items:
         running_total += price_map[item]
     return running_total
+
 
