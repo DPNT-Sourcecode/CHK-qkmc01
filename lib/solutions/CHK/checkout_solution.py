@@ -27,8 +27,3 @@ def checkout(skus):
     b_discount = (num_b_discounts * 15)
 
     return running_total - a_discount - b_discount
-
-
-
-
-
