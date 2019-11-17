@@ -33,6 +33,8 @@ def checkout(skus):
         total_discount_for_item = 0
 
         num_discountable_products = skus_.count(code)
+        if code == 'E':
+            breakpoint()
         for discount in discounts:
             num_discounts = int(num_discountable_products / discount[0])
             num_discountable_products = int(num_discountable_products % discount[0])
@@ -57,6 +59,7 @@ def checkout(skus):
     breakpoint()
 
     return running_total - a_discount - b_discount - f_discount - e_discount
+
 
 
 
