@@ -12,9 +12,13 @@ def checkout(skus):
 
     items = list(skus)
     running_total = 0
-    product_a_counter = 0
     for item in items:
         running_total += price_map[item]
+
+
+    num_product_a = items.count('A')
+    a_discount = num_product_a / 3 if num_product_a >= 3 else 0
     return running_total
+
 
 
