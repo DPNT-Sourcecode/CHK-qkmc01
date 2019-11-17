@@ -56,11 +56,15 @@ def checkout(skus):
     ##############################################################################
     # handle product A
     ##############################################################################
-    num_product_a = skus.count('A')
-    num_a_buy_5_discounts = int(num_product_a / 5)
-    remaining_as = num_product_a % 5
-    num_a_buy_3_discounts = int(remaining_as / 3)
-    a_discount = (num_a_buy_5_discounts * 50) + (num_a_buy_3_discounts * 20)
+    # num_product_a = skus.count('A')
+    # num_a_buy_5_discounts = int(num_product_a / 5)
+    # remaining_as = num_product_a % 5
+    # num_a_buy_3_discounts = int(remaining_as / 3)
+    # a_discount = (num_a_buy_5_discounts * 50) + (num_a_buy_3_discounts * 20)
+
+    a_discount = calc_discount(skus, 'A', discount_map['A'])
+
+    # assert a_discount == a_discount_new
 
     ##############################################################################
     # handle product B
@@ -76,4 +80,5 @@ def checkout(skus):
 
 
     return running_total - a_discount - b_discount - f_discount
+
 
