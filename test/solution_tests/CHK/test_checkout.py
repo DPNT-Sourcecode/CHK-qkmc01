@@ -108,6 +108,11 @@ def test_product_f(product_skus, expected):
     ('PPPPP', 200),
     ('QQ', 60),
     ('QQQ', 80),
+    ('RRR', 150),
+    ('RRRQ', 150),
+    ('RRRQQQ', 210),
+    ('RRRQQQQ', 230),
+
 ])
 def test_remaining_offers(product_skus, expected):
     assert checkout_solution.checkout(product_skus) == expected
@@ -117,5 +122,6 @@ def test_checkout():
 
 def test_checkout_multiples():
     assert checkout_solution.checkout('ABCDBA') == 180
+
 
 
