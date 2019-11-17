@@ -6,7 +6,7 @@ def test_checkout():
 
 
 def test_checkout_multiples():
-    assert checkout_solution.checkout('ABCDBA') == 195
+    assert checkout_solution.checkout('ABCDBA') == 180
 
 
 def test_checkout_discount_times_1():
@@ -29,4 +29,5 @@ def test_checkout_lower_case_rejected():
 
 def test_bad_chars_rejected():
     assert checkout_solution.checkout('-') == -1
+
 
