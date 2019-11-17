@@ -27,12 +27,6 @@ def checkout(skus):
         if item not in price_map.keys():
             return -1
 
-    running_total = 0
-    for item in skus:
-        running_total += price_map[item]
-
-
-
 
 
     def calc_discount(skus_, code, discounts):
@@ -51,40 +45,19 @@ def checkout(skus):
                     pass
         return total_discount_for_item
 
-
-    ##############################################################################
-    # handle product E
-    ##############################################################################
     e_discount = calc_discount(skus, 'E', discount_map['E'])
-
-    ##############################################################################
-    # handle product F
-    ##############################################################################
     f_discount = calc_discount(skus, 'F', discount_map['F'])
-
-    ##############################################################################
-    # handle product A
-    ##############################################################################
     a_discount = calc_discount(skus, 'A', discount_map['A'])
-
-
-    ##############################################################################
-    # handle product B
-    ##############################################################################
-    # num_product_b = skus.count('B')
-    # # assuming free B's cant be used in subsequent discounts
-    # # this may be wrong given the requirement that the
-    # # customer is always right!
-    # # num_product_b -= num_free_bs
-    # num_product_b = max(num_product_b, 0)
-    # num_b_discounts = int(num_product_b / 2)
-    # b_discount = (num_b_discounts * 15) # + (num_free_bs * 30)
-
     b_discount = calc_discount(skus, 'B', discount_map['B'])
+
+    running_total = 0
+    for item in skus:
+        running_total += price_map[item]
 
     breakpoint()
 
     return running_total - a_discount - b_discount - f_discount - e_discount
+
 
 
 
