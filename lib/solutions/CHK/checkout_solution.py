@@ -28,7 +28,6 @@ def checkout(skus):
             return -1
 
 
-
     def calc_discount(skus_, code):
         discounts = discount_map[code]
         total_discount_for_item = 0
@@ -47,23 +46,19 @@ def checkout(skus):
                         pass
         return total_discount_for_item
 
-    e_discount = calc_discount(skus, 'E')
-    f_discount = calc_discount(skus, 'F')
-    a_discount = calc_discount(skus, 'A')
-    b_discount = calc_discount(skus, 'B')
+    total_discount = 0
+    for code in price_map.keys():
+        total_discount += calc_discount(skus, code)
+
+    # e_discount = calc_discount(skus, 'E')
+    # f_discount = calc_discount(skus, 'F')
+    # a_discount = calc_discount(skus, 'A')
+    # b_discount = calc_discount(skus, 'B')
 
     running_total = 0
     for item in skus:
         running_total += price_map[item]
 
+    breakpoint()
 
-    return running_total - a_discount - b_discount - f_discount - e_discount
-
-
-
-
-
-
-
-
-
+    return running_total - total_discount
