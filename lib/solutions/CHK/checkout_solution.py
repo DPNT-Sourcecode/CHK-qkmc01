@@ -17,8 +17,10 @@ def checkout(skus):
 
 
     num_product_a = items.count('A')
-    a_discount = num_product_a / 3 if num_product_a >= 3 else 0
-    return running_total
+    num_a_discounts = num_product_a / 3 if num_product_a >= 3 else 0
+    breakpoint()
+    return running_total - (num_a_discounts * 20)
+
 
 
 
