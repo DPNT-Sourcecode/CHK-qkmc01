@@ -21,6 +21,8 @@ def checkout(skus):
         'F': [(3, 10)],
     }
 
+    skus = list(skus)
+
     for item in skus:
         if item not in price_map.keys():
             return -1
@@ -30,8 +32,12 @@ def checkout(skus):
         running_total += price_map[item]
 
 
+
+
+
     def calc_discount(skus_, code, discounts):
         total_discount_for_item = 0
+
         num_discountable_products = skus_.count(code)
         for discount in discounts:
             num_discounts = int(num_discountable_products / discount[0])
@@ -39,6 +45,7 @@ def checkout(skus):
             if isinstance(discount[1], int):
                 total_discount_for_item += num_discounts * discount[1]
             else:
+                
                 skus.remove(discount[1])
         return total_discount_for_item
 
@@ -79,5 +86,6 @@ def checkout(skus):
 
 
     return running_total - a_discount - b_discount - f_discount
+
 
 
