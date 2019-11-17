@@ -1,25 +1,19 @@
 from solutions.CHK import checkout_solution
 import pytest
 
-
-def test_checkout():
-    assert checkout_solution.checkout('ABCD') == 115
-
-def test_checkout_multiples():
-    assert checkout_solution.checkout('ABCDBA') == 180
-
-def test_checkout_three_Bs():
-    assert checkout_solution.checkout('BBB') == 75
-
-def test_checkout_discount_b_times_1():
-    assert checkout_solution.checkout('BB') == 45
-
+##############################################################################
+# validation
+##############################################################################
 def test_checkout_lower_case_rejected():
     assert checkout_solution.checkout('a') == -1
 
 def test_bad_chars_rejected():
     assert checkout_solution.checkout('-') == -1
 
+
+##############################################################################
+# products
+##############################################################################
 @pytest.mark.parametrize("product_skus, expected", [
     ('B', 30),
     ('BB', 45),
@@ -51,5 +45,27 @@ def test_product_a(product_skus, expected):
 ])
 def test_product_e(product_skus, expected):
     assert checkout_solution.checkout(product_skus) == expected
+
+
+@pytest.mark.parametrize("product_skus, expected", [
+    ('F', 10),
+    ('FF', 20),
+    ('FFF', 20),
+    ('FFFF', 30),
+    ('FFFFF', 40),
+    ('FFFFFF', 40),
+    ('FFFFFFF', 50),
+])
+def test_product_f(product_skus, expected):
+    assert checkout_solution.checkout(product_skus) == expected
+
+##############################################################################
+# general
+##############################################################################
+def test_checkout():
+    assert checkout_solution.checkout('ABCD') == 115
+
+def test_checkout_multiples():
+    assert checkout_solution.checkout('ABCDBA') == 180
 
 
