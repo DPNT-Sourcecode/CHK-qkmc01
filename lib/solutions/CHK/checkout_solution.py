@@ -44,10 +44,8 @@ def checkout(skus):
         'K': [(2, 10)],
         'P': [(5, 50)],
         'Q': [(3, 10)],
-        # 'U': [(3, 'U')],
-
-
-
+        'U': [(4, 40)],
+        'V': [(3, 20), (2, 10)],
     }
 
     skus = list(skus)
@@ -85,6 +83,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total - total_discount
+
 
 
 
