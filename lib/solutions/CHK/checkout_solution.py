@@ -8,7 +8,7 @@ def checkout(skus):
         'B': 30,
         'C': 20,
         'D': 15,
-        ''
+        'E': 40,
     }
 
     for item in skus:
@@ -19,6 +19,9 @@ def checkout(skus):
     for item in skus:
         running_total += price_map[item]
 
+    num_product_e = skus.count('E')
+    num_free_bs = int(num_product_e / 2)
+
     num_product_a = skus.count('A')
     num_a_buy_5_discounts = int(num_product_a / 5)
     remaining_as = num_product_a % 5
@@ -28,5 +31,6 @@ def checkout(skus):
     num_product_b = skus.count('B')
     num_b_discounts = int(num_product_b / 2)
     b_discount = (num_b_discounts * 15)
+
 
     return running_total - a_discount - b_discount
