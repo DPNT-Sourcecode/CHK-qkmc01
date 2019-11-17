@@ -37,7 +37,7 @@ def test_eight_As_for_200():
 def test_one_e_returns_40():
     assert checkout_solution.checkout('E') == 40
 
-def test_one_e_returns_80():
+def test_two_e_returns_80():
     assert checkout_solution.checkout('EE') == 80
 
 def test_two_e_gets_one_b_free():
@@ -45,4 +45,5 @@ def test_two_e_gets_one_b_free():
 
 def test_two_e_gets_one_b_free_but_no_b_discount():
     assert checkout_solution.checkout('EEBB') == 110
+
 
