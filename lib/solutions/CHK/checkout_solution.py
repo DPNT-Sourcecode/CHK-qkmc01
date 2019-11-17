@@ -10,7 +10,7 @@ def checkout(skus):
         'D': 15,
     }
 
-    items = list(skus)
+    items = [item.upper() for item in skus]
     running_total = 0
     for item in items:
         running_total += price_map[item]

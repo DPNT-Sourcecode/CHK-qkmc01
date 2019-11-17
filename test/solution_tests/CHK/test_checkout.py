@@ -23,3 +23,6 @@ def test_checkout_discount_times_2():
 
 def test_checkout_discount_b_times_1():
     assert checkout_solution.checkout('BB') == 45
+
+def test_checkout_lower_case_accepted():
+    assert checkout_solution.checkout('a') == 50
