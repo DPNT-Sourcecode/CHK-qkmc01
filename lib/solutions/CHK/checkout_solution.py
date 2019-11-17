@@ -29,15 +29,15 @@ def checkout(skus):
 
 
 
-    def calc_discount(skus_, code, discounts):
+    def calc_discount(skus_, code):
+        discounts = discount_map[code]
         total_discount_for_item = 0
 
         num_discountable_products = skus_.count(code)
         for discount in discounts:
             num_discounts = int(num_discountable_products / discount[0])
             num_discountable_products = int(num_discountable_products % discount[0])
-            breakpoint()
-            if num_discountable_products > 0:
+            if num_discounts:
                 if isinstance(discount[1], int):
                     total_discount_for_item += num_discounts * discount[1]
                 else:
@@ -47,12 +47,10 @@ def checkout(skus):
                         pass
         return total_discount_for_item
 
-    e_discount = calc_discount(skus, 'E', discount_map['E'])
-    f_discount = calc_discount(skus, 'F', discount_map['F'])
-    a_discount = calc_discount(skus, 'A', discount_map['A'])
-    b_discount = calc_discount(skus, 'B', discount_map['B'])
-
-    breakpoint()
+    e_discount = calc_discount(skus, 'E')
+    f_discount = calc_discount(skus, 'F')
+    a_discount = calc_discount(skus, 'A')
+    b_discount = calc_discount(skus, 'B')
 
     running_total = 0
     for item in skus:
@@ -60,6 +58,7 @@ def checkout(skus):
 
 
     return running_total - a_discount - b_discount - f_discount - e_discount
+
 
 
 
