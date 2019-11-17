@@ -71,17 +71,21 @@ def checkout(skus):
     ##############################################################################
     # handle product B
     ##############################################################################
-    num_product_b = skus.count('B')
-    # assuming free B's cant be used in subsequent discounts
-    # this may be wrong given the requirement that the
-    # customer is always right!
-    # num_product_b -= num_free_bs
-    num_product_b = max(num_product_b, 0)
-    num_b_discounts = int(num_product_b / 2)
-    b_discount = (num_b_discounts * 15) # + (num_free_bs * 30)
+    # num_product_b = skus.count('B')
+    # # assuming free B's cant be used in subsequent discounts
+    # # this may be wrong given the requirement that the
+    # # customer is always right!
+    # # num_product_b -= num_free_bs
+    # num_product_b = max(num_product_b, 0)
+    # num_b_discounts = int(num_product_b / 2)
+    # b_discount = (num_b_discounts * 15) # + (num_free_bs * 30)
 
+    b_discount = calc_discount(skus, 'B', discount_map['B'])
+
+    breakpoint()
 
     return running_total - a_discount - b_discount - f_discount - e_discount
+
 
 
 
