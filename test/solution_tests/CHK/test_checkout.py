@@ -24,8 +24,9 @@ def test_checkout_discount_times_2():
 def test_checkout_discount_b_times_1():
     assert checkout_solution.checkout('BB') == 45
 
-def test_checkout_lower_case_accepted():
-    assert checkout_solution.checkout('a') == 50
+def test_checkout_lower_case_rejected():
+    assert checkout_solution.checkout('a') == -1
 
-def test_bad_chars_ignored():
-    assert checkout_solution.checkout('-') == 0
+def test_bad_chars_rejected():
+    assert checkout_solution.checkout('-') == -1
+
