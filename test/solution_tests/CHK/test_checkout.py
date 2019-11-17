@@ -45,3 +45,6 @@ def test_two_e_gets_one_b_free():
 
 def test_two_e_gets_one_b_free_but_no_b_discount():
     assert checkout_solution.checkout('EEBB') == 110
+
+
+def test_product_f():
