@@ -1,3 +1,4 @@
+import pytest
 from solutions.CHK import checkout_solution
 
 
@@ -46,5 +47,13 @@ def test_two_e_gets_one_b_free():
 def test_two_e_gets_one_b_free_but_no_b_discount():
     assert checkout_solution.checkout('EEBB') == 110
 
-
-def test_product_f():
+@pytest.mark.parametrize("product_skus, expected", [
+    ("F", 10),
+    ("FF", 20),
+    # ("F", 10),
+    # ("F", 10),
+    # ("F", 10),
+    # ("F", 10),
+])
+def test_product_f(product_skus, expected):
+    assert checkout_solution.checkout(product_skus) == expected
