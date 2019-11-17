@@ -40,4 +40,3 @@ def checkout(skus):
 
 
     return running_total - a_discount - b_discount
-
