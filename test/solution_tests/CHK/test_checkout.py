@@ -20,4 +20,3 @@ def test_checkout_discount_plus_1():
 def test_checkout_discount_times_2():
     assert checkout_solution.checkout('AAAAAA') == 260
 
-
