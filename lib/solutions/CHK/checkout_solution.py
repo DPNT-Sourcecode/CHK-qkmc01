@@ -17,7 +17,7 @@ def checkout(skus):
         'B': [(2, 15)],
         'C': [],
         'D': [],
-        'E': [],
+        'E': [(2, 'B')],
         'F': [],
     }
 
@@ -29,13 +29,17 @@ def checkout(skus):
     for item in skus:
         running_total += price_map[item]
 
+
     def calc_discount(skus, code, discounts):
         total_discount_for_item = 0
         num_discountable_products = skus.count(code)
         for discount in discounts:
             num_discounts = int(num_discountable_products / discount[0])
-            num_discountable_products = int(num_discountable_products %  discount[0])
-            total_discount_for_item += num_discounts * discount[1]
+            num_discountable_products = int(num_discountable_products % discount[0])
+            if isinstance(discount[1], int):
+                total_discount_for_item += num_discounts * discount[1]
+            else:
+                s
         return total_discount_for_item
 
 
@@ -56,15 +60,8 @@ def checkout(skus):
     ##############################################################################
     # handle product A
     ##############################################################################
-    # num_product_a = skus.count('A')
-    # num_a_buy_5_discounts = int(num_product_a / 5)
-    # remaining_as = num_product_a % 5
-    # num_a_buy_3_discounts = int(remaining_as / 3)
-    # a_discount = (num_a_buy_5_discounts * 50) + (num_a_buy_3_discounts * 20)
-
     a_discount = calc_discount(skus, 'A', discount_map['A'])
 
-    # assert a_discount == a_discount_new
 
     ##############################################################################
     # handle product B
@@ -76,9 +73,7 @@ def checkout(skus):
     num_product_b -= num_free_bs
     num_product_b = max(num_product_b, 0)
     num_b_discounts = int(num_product_b / 2)
-    b_discount = (num_b_discounts * 15) + ( num_free_bs * 30)
+    b_discount = (num_b_discounts * 15) + (num_free_bs * 30)
 
 
     return running_total - a_discount - b_discount - f_discount
-
-
