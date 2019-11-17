@@ -34,3 +34,6 @@ def test_checkout_lower_case_rejected():
 
 def test_bad_chars_rejected():
     assert checkout_solution.checkout('-') == -1
+
+def test_five_As_for_200():
+    assert checkout_solution.checkout('AAAAA') == 200
