@@ -45,21 +45,17 @@ def checkout(skus):
             if isinstance(discount[1], int):
                 total_discount_for_item += num_discounts * discount[1]
             else:
-                
-                skus.remove(discount[1])
+                try:
+                    skus.remove(discount[1])
+                except ValueError:
+                    pass
         return total_discount_for_item
 
 
     ##############################################################################
     # handle product E
     ##############################################################################
-    # breakpoint()
-    num_product_e = skus.count('E')
-    num_free_bs = int(num_product_e / 2)
-    num_free_bs = min(num_free_bs, skus.count('B'))
-
     e_discount = calc_discount(skus, 'E', discount_map['E'])
-    # breakpoint()
 
     ##############################################################################
     # handle product F
@@ -79,13 +75,14 @@ def checkout(skus):
     # assuming free B's cant be used in subsequent discounts
     # this may be wrong given the requirement that the
     # customer is always right!
-    num_product_b -= num_free_bs
+    # num_product_b -= num_free_bs
     num_product_b = max(num_product_b, 0)
     num_b_discounts = int(num_product_b / 2)
-    b_discount = (num_b_discounts * 15) + (num_free_bs * 30)
+    b_discount = (num_b_discounts * 15) # + (num_free_bs * 30)
 
 
-    return running_total - a_discount - b_discount - f_discount
+    return running_total - a_discount - b_discount - f_discount - e_discount
+
 
 
 
