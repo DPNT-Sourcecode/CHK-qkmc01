@@ -63,26 +63,26 @@ def checkout(skus):
         for discount in discounts:
             num_discounts = int(num_discountable_products / discount[0])
             num_discountable_products = int(num_discountable_products % discount[0])
-            breakpoint()
             if num_discounts:
                 if isinstance(discount[1], int):
                     total_discount_for_item += num_discounts * discount[1]
                 else:
-                    try:
-                        skus.remove(discount[1])
-                    except ValueError:
-                        pass
+                    for _ in range(num_discounts):
+                        try:
+                            skus.remove(discount[1])
+                        except ValueError:
+                            pass
         return total_discount_for_item
 
     total_discount = 0
     for code in discount_map.keys():
         total_discount += calc_discount(skus, code)
 
-    breakpoint()
 
     running_total = 0
     for item in skus:
         running_total += price_map[item]
 
     return running_total - total_discount
+
 
