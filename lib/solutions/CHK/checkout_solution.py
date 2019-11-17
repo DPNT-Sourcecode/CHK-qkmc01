@@ -12,12 +12,13 @@ def checkout(skus):
         'F': 10,
     }
 
+    # discounts that affect other products must come first
     discount_map = {
+        'E': [(2, 'B')],
         'A': [(5, 50), (3, 20)],
         'B': [(2, 15)],
         'C': [],
         'D': [],
-        'E': [(2, 'B')],
         'F': [(3, 10)],
     }
 
@@ -47,18 +48,13 @@ def checkout(skus):
         return total_discount_for_item
 
     total_discount = 0
-    for code in price_map.keys():
+    for code in discount_map.keys():
         total_discount += calc_discount(skus, code)
 
-    # e_discount = calc_discount(skus, 'E')
-    # f_discount = calc_discount(skus, 'F')
-    # a_discount = calc_discount(skus, 'A')
-    # b_discount = calc_discount(skus, 'B')
 
     running_total = 0
     for item in skus:
         running_total += price_map[item]
 
-    breakpoint()
-
     return running_total - total_discount
+
