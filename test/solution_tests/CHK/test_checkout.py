@@ -42,6 +42,8 @@ def test_product_a(product_skus, expected):
     ('EE', 80),
     ('EEB', 80),
     ('EEBB', 110),
+    ('EEEEBB', 160),
+    ('BEBEEE', 160),
 ])
 def test_product_e(product_skus, expected):
     assert checkout_solution.checkout(product_skus) == expected
@@ -79,6 +81,7 @@ def test_product_f(product_skus, expected):
     ('RRRQ', 150),
     ('RRRQQQ', 210),
     ('RRRQQQQ', 230),
+    ('RRRRRRQQ', 300),
     ('UUU', 120),
     ('UUUU', 120),
     ('V', 50),
