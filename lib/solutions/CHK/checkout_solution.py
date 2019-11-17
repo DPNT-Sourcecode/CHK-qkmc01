@@ -46,9 +46,13 @@ def checkout(skus):
     ##############################################################################
     # handle product E
     ##############################################################################
+    # breakpoint()
     num_product_e = skus.count('E')
     num_free_bs = int(num_product_e / 2)
     num_free_bs = min(num_free_bs, skus.count('B'))
+
+    e_discount = calc_discount(skus, 'E', discount_map['E'])
+    # breakpoint()
 
     ##############################################################################
     # handle product F
@@ -75,4 +79,5 @@ def checkout(skus):
 
 
     return running_total - a_discount - b_discount - f_discount
+
 
