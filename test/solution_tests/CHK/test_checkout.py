@@ -50,10 +50,11 @@ def test_two_e_gets_one_b_free_but_no_b_discount():
 @pytest.mark.parametrize("product_skus, expected", [
     ("F", 10),
     ("FF", 20),
-    # ("F", 10),
-    # ("F", 10),
-    # ("F", 10),
-    # ("F", 10),
+    ("FFF", 20),
+    ("FFFF", 30),
+    ("FFFFF", 40),
+    ("FFFFFF", 40),
+    ("FFFFFFF", 50),
 ])
 def test_product_f(product_skus, expected):
     assert checkout_solution.checkout(product_skus) == expected
