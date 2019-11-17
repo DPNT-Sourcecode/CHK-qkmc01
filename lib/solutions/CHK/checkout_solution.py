@@ -35,6 +35,7 @@ def checkout(skus):
     # discounts that affect other products must come first
     discount_map = {
         'E': [(2, 'B')],
+        'N': [(3, 'M')],
         'A': [(5, 50), (3, 20)],
         'B': [(2, 15)],
         'C': [],
@@ -42,6 +43,9 @@ def checkout(skus):
         'F': [(3, 10)],
         'H': [(10, 20), (5, 5)],
         'K': [(2, 10)],
+        'P': [(5, 50)],
+        'Q': [(3, 10)],
+
 
 
     }
@@ -81,6 +85,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total - total_discount
+
 
 
 
