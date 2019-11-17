@@ -33,12 +33,12 @@ def checkout(skus):
     # this may be wrong given the requirement that the
     # customer is always right!
     num_product_b -= num_free_bs
-    num_b_discounts = int(max(num_product_b, 0) / 2)
-    b_discount = (num_b_discounts * 15) + (min(num_product_b,num_free_bs) * 30)
-
-    breakpoint()
+    num_product_b = max(num_product_b, 0)
+    num_b_discounts = int(num_product_b / 2)
+    b_discount = (num_b_discounts * 15) + (max(num_product_b, num_free_bs) * 30)
 
     return running_total - a_discount - b_discount
+
 
 
 
