@@ -67,5 +67,3 @@ def test_checkout():
 
 def test_checkout_multiples():
     assert checkout_solution.checkout('ABCDBA') == 180
-
-
