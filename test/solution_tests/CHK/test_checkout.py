@@ -1,4 +1,5 @@
 from solutions.CHK import checkout_solution
+import pytest
 
 
 def test_checkout():
@@ -34,6 +35,15 @@ def test_five_As_for_200():
 def test_eight_As_for_200():
     assert checkout_solution.checkout('AAAAAAAA') == 330
 
+@pytest.mark.parametrize("product_skus, expected", [
+    ('E', 40),
+    ('EE', 80),
+    ('EEB', 80),
+    ('EEBB', 110),
+])
+def test_product_e(product_skus, expected):
+    assert checkout_solution.checkout(product_skus) == expected
+
 def test_one_e_returns_40():
     assert checkout_solution.checkout('E') == 40
 
@@ -45,4 +55,5 @@ def test_two_e_gets_one_b_free():
 
 def test_two_e_gets_one_b_free_but_no_b_discount():
     assert checkout_solution.checkout('EEBB') == 110
+
 
