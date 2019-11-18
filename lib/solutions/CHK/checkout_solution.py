@@ -75,6 +75,8 @@ def checkout(skus):
         for item in range(skus_.count(code)):
             skus.remove(code)
 
+        if code == 'K':
+            breakpoint()
         return total_for_items - total_discount
 
 
@@ -114,8 +116,6 @@ def checkout(skus):
 
     for code in discount_map.keys():
         running_total += process_item_code(skus, code)
-        if running_total > 0:
-            breakpoint()
 
     breakpoint()
 
@@ -123,6 +123,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
 
 
