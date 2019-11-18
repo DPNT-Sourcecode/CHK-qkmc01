@@ -61,8 +61,9 @@ def checkout(skus):
 
         num_discountable_products = skus_.count(code)
         for discount in discounts:
-            num_discounts = int(num_discountable_products / discount[0])
-            num_discountable_products = int(num_discountable_products % discount[0])
+            quantity_qualifier = discount[0]
+            num_discounts = int(num_discountable_products / quantity_qualifier)
+            num_discountable_products = int(num_discountable_products % quantity_qualifier)
             if num_discounts:
                 if isinstance(discount[1], int):
                     total_discount_for_item += num_discounts * discount[1]
@@ -84,3 +85,4 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total - total_discount
+
