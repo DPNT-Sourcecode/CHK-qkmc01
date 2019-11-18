@@ -14,7 +14,7 @@ def checkout(skus):
         'H': 10,
         'I': 35,
         'J': 60,
-        'K': 80,
+        'K': 70,
         'L': 90,
         'M': 15,
         'N': 40,
@@ -41,7 +41,7 @@ def checkout(skus):
         'B': [(2, 15)],
         'F': [(3, 10)],
         'H': [(10, 20), (5, 5)],
-        'K': [(2, 10)],
+        'K': [(2, 20)],
         'P': [(5, 50)],
         'Q': [(3, 10)],
         'U': [(4, 40)],
@@ -75,8 +75,6 @@ def checkout(skus):
         for item in range(skus_.count(code)):
             skus.remove(code)
 
-        if code == 'K':
-            breakpoint()
         return total_for_items - total_discount
 
 
@@ -112,17 +110,15 @@ def checkout(skus):
 
     running_total = apply_any_3_deal()
 
-    breakpoint()
-
     for code in discount_map.keys():
         running_total += process_item_code(skus, code)
 
-    breakpoint()
 
     for item in skus:
         running_total += price_map[item]
 
     return running_total
+
 
 
 
