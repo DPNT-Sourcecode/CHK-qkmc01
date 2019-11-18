@@ -86,6 +86,8 @@ def checkout(skus):
         return total_discount
 
     def apply_any_3_deal():
+        valid_items = sorted(['S', 'T', 'X', 'Y', 'Z'], key=lambda x: price_map[x], reverse=True)
+        breakpoint()
         return 0
 
     running_total = apply_any_3_deal()
@@ -97,6 +99,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
 
 
