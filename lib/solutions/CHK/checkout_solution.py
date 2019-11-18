@@ -110,12 +110,19 @@ def checkout(skus):
 
     running_total = apply_any_3_deal()
 
+    breakpoint()
+
     for code in discount_map.keys():
         running_total += process_item_code(skus, code)
+        if running_total > 0:
+            breakpoint()
+
+    breakpoint()
 
     for item in skus:
         running_total += price_map[item]
 
     return running_total
+
 
 

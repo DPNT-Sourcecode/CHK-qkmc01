@@ -79,6 +79,7 @@ def test_any_3_deal(product_skus, expected):
     ('HH', 20),
     ('HHHHH', 45),
     ('HHHHHHHHHH', 80),
+    ('K', 70),
     ('KK', 150),
     ('KKK', 230),
     ('NNN', 120),
@@ -107,4 +108,5 @@ def test_checkout():
 
 def test_checkout_multiples():
     assert checkout_solution.checkout('ABCDBA') == 180
+
 
