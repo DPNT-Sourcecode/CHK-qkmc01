@@ -76,9 +76,12 @@ def checkout(skus):
                             skus.remove(discount[1])
                         except ValueError:
                             pass
-        if code in ('B', 'E'):
-            breakpoint()
+        for p in range(num_discountable_products):
+            skus.remove(code)
+
         return total_for_items - total_discount
+
+    breakpoint()
 
     for code in discount_map.keys():
         running_total += process_item_code(skus, code)
@@ -87,6 +90,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
 
 
