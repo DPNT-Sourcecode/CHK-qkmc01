@@ -64,11 +64,10 @@ def test_product_f(product_skus, expected):
 @pytest.mark.parametrize("product_skus, expected", [
     ('XYZ', 45),
     ('XYZX', 62),
-    # ('FFF', 20),
-    # ('FFFF', 30),
-    # ('FFFFF', 40),
-    # ('FFFFFF', 40),
-    # ('FFFFFFF', 50),
+    ('STSXYZ', 90),
+    ('XY', 37),
+    ('FFFFF', 40),
+    ('XEEBBYZ', 155),
 ])
 def test_any_3_deal(product_skus, expected):
     assert checkout_solution.checkout(product_skus) == expected
@@ -108,3 +107,4 @@ def test_checkout():
 
 def test_checkout_multiples():
     assert checkout_solution.checkout('ABCDBA') == 180
+
