@@ -56,7 +56,6 @@ def checkout(skus):
 
     running_total = 0
 
-
     def process_item_code(skus_, code):
         discounts = discount_map[code]
         total_discount = 0
@@ -94,6 +93,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
 
 
