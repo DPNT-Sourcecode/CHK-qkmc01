@@ -85,4 +85,3 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total - total_discount
-
