@@ -54,6 +54,8 @@ def checkout(skus):
         if item not in price_map.keys():
             return -1
 
+    skus = sorted(skus, key=lambda x: price_map[x], reverse=True)
+
 
     def process_item_code(skus_, code):
         discounts = discount_map[code]
@@ -86,8 +88,10 @@ def checkout(skus):
         return total_discount
 
     def apply_any_3_deal():
-        valid_items = sorted(['S', 'T', 'X', 'Y', 'Z'], key=lambda x: price_map[x], reverse=True)
-        breakpoint()
+        offer_match_items = []
+        for sku in skus:
+            if 
+
         return 0
 
     running_total = apply_any_3_deal()
@@ -99,6 +103,7 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
 
 
