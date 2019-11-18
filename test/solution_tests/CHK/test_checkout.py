@@ -61,6 +61,18 @@ def test_product_e(product_skus, expected):
 def test_product_f(product_skus, expected):
     assert checkout_solution.checkout(product_skus) == expected
 
+@pytest.mark.parametrize("product_skus, expected", [
+    ('XYZ', 45),
+    ('XYZX', 62),
+    # ('FFF', 20),
+    # ('FFFF', 30),
+    # ('FFFFF', 40),
+    # ('FFFFFF', 40),
+    # ('FFFFFFF', 50),
+])
+def test_any_3_deal(product_skus, expected):
+    assert checkout_solution.checkout(product_skus) == expected
+
 ##############################################################################
 # general
 ##############################################################################

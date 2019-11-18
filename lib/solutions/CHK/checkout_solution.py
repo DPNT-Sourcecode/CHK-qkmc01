@@ -88,11 +88,22 @@ def checkout(skus):
         return total_discount
 
     def apply_any_3_deal():
-        offer_match_items = []
+        matching_skus = []
+        offer_hit = []
         for sku in skus:
-            if 
+            if sku in ['S', 'T', 'X', 'Y', 'Z']:
+                matching_skus.append(sku)
+                if len(matching_skus) == 3:
+                    offer_hit.append(matching_skus)
+                    matching_skus = []
 
-        return 0
+        running_total = 0
+        for hit in offer_hit:
+            for item in hit:
+                skus.remove(item)
+            running_total += 45
+
+        return running_total
 
     running_total = apply_any_3_deal()
 
@@ -103,9 +114,3 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
-
-
-
-
-
-
