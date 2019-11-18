@@ -22,14 +22,14 @@ def checkout(skus):
         'P': 50,
         'Q': 30,
         'R': 50,
-        'S': 20,
+        'S': 30,
         'T': 20,
         'U': 40,
         'V': 50,
         'W': 20,
-        'X': 17,
-        'Y': 20,
-        'Z': 21,
+        'X': 90,
+        'Y': 10,
+        'Z': 50,
     }
 
     # discounts that affect other products must come first
@@ -54,7 +54,8 @@ def checkout(skus):
         if item not in price_map.keys():
             return -1
 
-    # running_total = 0
+    running_total = 0
+
 
     def process_item_code(skus_, code):
         discounts = discount_map[code]
@@ -86,11 +87,6 @@ def checkout(skus):
                     pass
         return total_discount
 
-    def process_any_3_deal():
-        return 0
-
-    running_total = process_any_3_deal()
-
     for code in discount_map.keys():
         running_total += process_item_code(skus, code)
 
@@ -98,5 +94,6 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
 
