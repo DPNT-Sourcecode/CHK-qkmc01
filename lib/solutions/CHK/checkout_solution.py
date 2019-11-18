@@ -65,10 +65,12 @@ def checkout(skus):
         total_for_items = num_discountable_products * price_map[code]
         for discount in discounts:
             quantity_qualifier = discount[0]
+            discount_target = discount[1]
+
             num_discounts = int(num_discountable_products / quantity_qualifier)
             num_discountable_products = int(num_discountable_products % quantity_qualifier)
             if num_discounts:
-                total_discount = apply_discount(discount[1], num_discounts,
+                total_discount = apply_discount(discount_target, num_discounts,
                                                 total_discount)
         for item in range(skus_.count(code)):
             skus.remove(code)
@@ -115,4 +117,5 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
 
