@@ -34,10 +34,10 @@ def checkout(skus):
 
     # discounts that affect other products must come first
     discount_map = {
-        'E': [(2, 'B')],
+        'E': [(2, 'B')],  # buy 2, get free B
         'N': [(3, 'M')],
         'R': [(3, 'Q')],
-        'A': [(5, 50), (3, 20)],
+        'A': [(5, 50), (3, 20)], # buy 5, get 50 discount / buy 3, get 20 discount
         'B': [(2, 15)],
         'F': [(3, 10)],
         'H': [(10, 20), (5, 5)],
@@ -87,6 +87,7 @@ def checkout(skus):
                     pass
         return total_discount
 
+
     def apply_any_3_deal():
         matching_skus = []
         offer_hit = []
@@ -114,3 +115,4 @@ def checkout(skus):
         running_total += price_map[item]
 
     return running_total
+
